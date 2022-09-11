@@ -22,7 +22,7 @@ export function StoreItems({
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
-    addFavorite
+    addFavorite,
   } = useShoppingCart();
   let quantity = getItemQuantity(id);
   return (

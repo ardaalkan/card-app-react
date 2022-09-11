@@ -1,9 +1,8 @@
 import FavoriteItems from "../components/FavoriteItems";
-import storeItems from "../data/items.json";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 
 export function Favorites() {
-  const { favorite, removeFavorite } = useShoppingCart();
+  const { favorite } = useShoppingCart();
 
   return (
     <>

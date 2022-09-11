@@ -18,7 +18,6 @@ type ShoppingCartContext = {
   addFavorite: (id: any) => any;
   removeFavorite: (id: any) => any;
   favorite: FavoriteItem[];
-  getFavQuantity: (id: number) => number;
 };
 
 type CartItem = {
@@ -28,7 +27,6 @@ type CartItem = {
 
 type FavoriteItem = {
   id: number;
-  quantity: number;
 };
 
 const ShoppingCartContext = createContext({} as ShoppingCartContext);
@@ -61,11 +59,11 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   function addFavorite(id: number) {
     setFavorite((favItems) => {
       if (favItems.find((item) => item.id === id) == null) {
-        return [...favItems, { id, quantity: 1 }];
+        return [...favItems, { id }];
       } else {
         return favItems.map((fav) => {
           if (fav.id === id) {
-            return { ...fav, quantity: fav.quantity + 1 };
+            return { ...fav };
           } else {
             return fav;
           }
@@ -78,10 +76,6 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     setFavorite((favItems) => {
       return favItems.filter((fav) => fav.id !== id);
     });
-  }
-
-  function getFavQuantity(id: number) {
-    return favorite.find((item) => item.id === id)?.quantity || 0;
   }
 
   function getItemQuantity(id: number) {
@@ -140,7 +134,6 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         favorite,
         addFavorite,
         removeFavorite,
-        getFavQuantity,
       }}
     >
       {children}
