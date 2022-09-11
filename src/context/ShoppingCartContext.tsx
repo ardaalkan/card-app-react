@@ -15,7 +15,7 @@ type ShoppingCartContext = {
   removeFromCart: (id: number) => void;
   cartItems: CartItem[];
   cartQuantity: number;
-  addFavorite: (id: any) => any;
+  toggleFavorite: (id: any) => any;
   removeFavorite: (id: any) => any;
   favorite: FavoriteItem[];
 };
@@ -56,20 +56,33 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
 
-  function addFavorite(id: number) {
-    setFavorite((favItems) => {
-      if (favItems.find((item) => item.id === id) == null) {
-        return [...favItems, { id }];
-      } else {
-        return favItems.map((fav) => {
-          if (fav.id === id) {
-            return { ...fav };
-          } else {
-            return fav;
-          }
-        });
-      }
+  // function addFavorite(id: number) {
+  //   setFavorite((favItems) => {
+  //     if (favItems.find((item) => item.id === id) == null) {
+  //       return [...favItems, { id }];
+  //     } else {
+  //       return favItems.map((fav) => {
+  //         if (fav.id === id) {
+  //           return { ...fav };
+  //         } else {
+  //           return fav;
+  //         }
+  //       });
+  //     }
+  //   });
+  // }
+
+  function toggleFavorite(id:number){
+    const favRecPrevious: any = favorite.find(function(rec:any){
+      return rec.id === id;
     });
+    const favRecUpdated = {
+      ...favRecPrevious, favorite: !favRecPrevious.favoriteItem,
+    };
+    const favDataNew: any = favorite.map(function(rec:any){
+      return rec.id === id ? favRecUpdated : rec;
+    });
+    setFavorite(favDataNew);  
   }
 
   function removeFavorite(id: number) {
@@ -132,7 +145,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         cartItems,
         cartQuantity,
         favorite,
-        addFavorite,
+        toggleFavorite,
         removeFavorite,
       }}
     >

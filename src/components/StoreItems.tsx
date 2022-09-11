@@ -7,7 +7,7 @@ type StoreItemProps = {
   name: string;
   price: number;
   imageUrl: string;
-  favorite: boolean;
+  favoriteItem: boolean;
 };
 
 export function StoreItems({
@@ -15,14 +15,14 @@ export function StoreItems({
   name,
   price,
   imageUrl,
-  favorite,
+  favoriteItem,
 }: StoreItemProps) {
   const {
     getItemQuantity,
     increaseCartQuantity,
     decreaseCartQuantity,
     removeFromCart,
-    addFavorite,
+    toggleFavorite
   } = useShoppingCart();
   let quantity = getItemQuantity(id);
   return (
@@ -30,8 +30,8 @@ export function StoreItems({
       <div className="flex-col mt-24 bg-slate-100 m-1">
         <div className="p-5 m-1">
           <div className="flex cursor-pointer p-1">
-            <span onClick={() => addFavorite(id)}>
-              {favorite === true ? <MdFavorite /> : <MdOutlineFavoriteBorder />}
+            <span onClick={() => toggleFavorite(id)}>
+              {favoriteItem === true ? <MdFavorite /> : <MdOutlineFavoriteBorder />}
             </span>
           </div>
           <img

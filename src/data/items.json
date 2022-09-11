@@ -4,41 +4,41 @@
     "name": "iPhone 13 Pro",
     "price": 800.99,
     "imageUrl": "/images/13_pro.jpg",
-    "favorite": true
+    "favoriteItem": true
   },
   {
     "id": 2,
     "name": "Macbook Air",
     "price": 1199,
     "imageUrl": "/images/mac_air.jpg",
-    "favorite": false
+    "favoriteItem": false
   },
   {
     "id": 3,
     "name": "Macbook Pro",
     "price": 1990,
     "imageUrl": "/images/mac_pro.jpg",
-    "favorite": false
+    "favoriteItem": false
   },
   {
     "id": 4,
     "name": "Air Tag",
     "price": 29,
     "imageUrl": "/images/air_tag.jpg",
-    "favorite": true
+    "favoriteItem": true
   },
   {
     "id": 5,
     "name": "Air Max Headphone",
     "price": 29,
     "imageUrl": "/images/airmax.jpg",
-    "favorite": true
+    "favoriteItem": true
   },
   {
     "id": 6,
     "name": "AirPods",
     "price": 29,
     "imageUrl": "/images/airpods.jpg",
-    "favorite": false
+    "favoriteItem": false
   }
 ]
