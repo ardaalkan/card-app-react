@@ -7,6 +7,7 @@ type FavItemProps = {
 
 export default function FavoriteItems({ id }: FavItemProps) {
   const { removeFavorite } = useShoppingCart();
+
   const item = storeItems.find((i) => i.id === id);
   if (item == null) return null;
 

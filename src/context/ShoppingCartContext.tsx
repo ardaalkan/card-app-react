@@ -18,6 +18,7 @@ type ShoppingCartContext = {
   toggleFavorite: (id: any) => any;
   removeFavorite: (id: any) => any;
   favorite: FavoriteItem[];
+  favQuantity: number;
 };
 
 type CartItem = {
@@ -53,37 +54,39 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     0
   );
 
+  const favQuantity = favorite.length;
+
   const openCart = () => setIsOpen(true);
   const closeCart = () => setIsOpen(false);
 
-  // function addFavorite(id: number) {
-  //   setFavorite((favItems) => {
-  //     if (favItems.find((item) => item.id === id) == null) {
-  //       return [...favItems, { id }];
-  //     } else {
-  //       return favItems.map((fav) => {
-  //         if (fav.id === id) {
-  //           return { ...fav };
-  //         } else {
-  //           return fav;
-  //         }
-  //       });
-  //     }
-  //   });
-  // }
-
-  function toggleFavorite(id:number){
-    const favRecPrevious: any = favorite.find(function(rec:any){
-      return rec.id === id;
+  function toggleFavorite(id: number) {
+    setFavorite((favItems) => {
+      if (favItems.find((item) => item.id === id) == null) {
+        return [...favItems, { id }];
+      } else {
+        return favItems.map((fav) => {
+          if (fav.id === id) {
+            return { ...fav };
+          } else {
+            return fav;
+          }
+        });
+      }
     });
-    const favRecUpdated = {
-      ...favRecPrevious, favorite: !favRecPrevious.favoriteItem,
-    };
-    const favDataNew: any = favorite.map(function(rec:any){
-      return rec.id === id ? favRecUpdated : rec;
-    });
-    setFavorite(favDataNew);  
   }
+
+  // function toggleFavorite(id:number){
+  //   favorite.find(function(rec:any){
+  //     return rec.id === id;
+  //   });
+  //   const favRecUpdated = {
+  //     ...favRecPrevious, favoriteItem: !favRecPrevious.favoriteItem,
+  //   };
+  //   const favDataNew: any = favorite.map(function(rec:any){
+  //     return rec.id === id ? favRecUpdated : rec;
+  //   });
+  //   setFavorite(favDataNew);
+  // }
 
   function removeFavorite(id: number) {
     setFavorite((favItems) => {
@@ -147,6 +150,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         favorite,
         toggleFavorite,
         removeFavorite,
+        favQuantity
       }}
     >
       {children}

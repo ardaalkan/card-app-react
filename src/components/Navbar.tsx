@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useShoppingCart } from "../context/ShoppingCartContext";
 
 export function Navbar() {
-  const { openCart, cartQuantity } = useShoppingCart();
+  const { openCart, cartQuantity, favQuantity } = useShoppingCart();
   return (
     <div className="w-full fixed h-[8vh] shadow-lg shadow-gray items-center  text-gray-50 flex justify-evenly backdrop-blur-xl bg-white/30">
       <div className="w-full mr-10 ml-12 p-2">
@@ -44,12 +44,12 @@ export function Navbar() {
               : "mr-12 text-black"
           }
         >
-          Favorites
+          <>Favorites - {favQuantity}</>
         </NavLink>
       </div>
       <button
         onClick={openCart}
-        className="mr-7 ml-5 w-12 h-12 rounded-full border border-black hover:bg-indigo-200"
+        className="mr-7 ml-5 w-12 h-12 rounded-full border border-black hover:bg-indigo-200 right-4 bottom-4"
       >
         <svg
           style={{ width: "1.7rem", margin: "auto", display: "fixed" }}

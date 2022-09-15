@@ -10,10 +10,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ShoppingCartProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ShoppingCartProvider>
+      <ShoppingCartProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ShoppingCartProvider>
   </React.StrictMode>
 );
