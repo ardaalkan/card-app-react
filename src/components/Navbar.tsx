@@ -3,8 +3,9 @@ import { useShoppingCart } from "../context/ShoppingCartContext";
 
 export function Navbar() {
   const { openCart, cartQuantity, favQuantity } = useShoppingCart();
+
   return (
-    <div className="w-full fixed h-[8vh] shadow-lg shadow-gray items-center  text-gray-50 flex justify-evenly backdrop-blur-xl bg-white/30">
+    <div className="w-full h-[8vh] shadow-lg shadow-gray items-center  text-gray-50 flex justify-evenly backdrop-blur-xl bg-white/30">
       <div className="w-full mr-10 ml-12 p-2">
         <NavLink
           to="/"
@@ -35,6 +36,16 @@ export function Navbar() {
           }
         >
           About
+        </NavLink>
+        <NavLink
+          to="/cart"
+          className={(activeStyle) =>
+            activeStyle.isActive
+              ? "mr-12 text-black font-bold"
+              : "mr-12 text-black"
+          }
+        >
+          Cart
         </NavLink>
         <NavLink
           to="/favorites"

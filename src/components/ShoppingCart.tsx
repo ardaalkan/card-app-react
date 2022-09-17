@@ -37,7 +37,7 @@ export default function ShoppingCart({ isOpen }: ShoppingCartProps) {
               </span>
             </h3>
           ) : (
-            <div className="flex justify-end mr-14">
+            <div className="flex display-col justify-end mr-10">
               <h3 className="font-bold">Total: &nbsp;</h3>
               {formatCurrency(
                 cartItems.reduce((total, cartItem) => {

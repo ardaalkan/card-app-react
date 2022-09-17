@@ -15,7 +15,7 @@ export function Favorites() {
               className="row-auto"
             />
             <span className="ml-6 font-bold tracking-wide">
-              Favorite is not <br /> exist..
+              Favorite is not exist..
             </span>
           </div>
         ) : (

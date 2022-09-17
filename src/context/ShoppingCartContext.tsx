@@ -150,7 +150,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         favorite,
         toggleFavorite,
         removeFavorite,
-        favQuantity
+        favQuantity,
       }}
     >
       {children}

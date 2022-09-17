@@ -1,11 +1,11 @@
 import storeItems from "../data/items.json";
-import { useContext } from "react";
+// import { useContext } from "react";
 import { StoreItems } from "../components/StoreItems";
 import { StoreToolbar } from "../components/StoreToolbar";
-import { FilterContext } from "../context/FilterContext";
+// import { FilterContext } from "../context/FilterContext";
 
 export function Store() {
-  const { searchQuery } = useContext(FilterContext);
+  // const { searchQuery } = useContext(FilterContext);
 
   return (
     <>
