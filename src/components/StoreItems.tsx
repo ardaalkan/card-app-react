@@ -22,7 +22,7 @@ export function StoreItems({ id, name, price, imageUrl }: StoreItemProps) {
   return (
     <>
       <div key={id}>
-        <div className="flex-col mt-36 bg-slate-100 m-1">
+        <div className="flex-col mt-16 bg-slate-100 m-1">
           <div className="p-5 m-1">
             <div className="flex cursor-pointer p-1">
               <span

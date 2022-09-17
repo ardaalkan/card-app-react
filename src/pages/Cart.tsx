@@ -10,7 +10,7 @@ export function Cart() {
   return (
     <>
       <div className="w-8/12 m-auto justify-center p-3">
-        <header className="p-4 font-bold text-3xl ml-2 mt-20">Cart</header>
+        <header className="p-4 font-bold text-3xl ml-2 mt-6">Cart</header>
         {cartItems.map((item) => (
           <CartPageItem key={item.id} {...item} />
         ))}
