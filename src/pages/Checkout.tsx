@@ -64,7 +64,7 @@ export default function Checkout() {
                 <Field
                   type="text"
                   name="city"
-                  className="border-solid border-2 border-sky-800 "
+                  className="border-solid border-2 border-sky-800"
                 />
                 <ErrorMessage name="city" component="p" />
               </div>
