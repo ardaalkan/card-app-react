@@ -15,12 +15,7 @@ export function Cart() {
           <CartPageItem key={item.id} {...item} />
         ))}
         {cartItems.length === 0 ? (
-          <h3 className="pl-6">
-            Cart Item is empty.{" "}
-            <span role="img" className="mt-5 text-3xl">
-              🧐
-            </span>
-          </h3>
+          <h3 className="pl-6">Cart is empty.. </h3>
         ) : (
           <div className="flex justify-end mr-10 mt-10 mb-12">
             <h3 className="font-bold text-xl">Total: &nbsp;</h3>
